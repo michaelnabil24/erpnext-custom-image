@@ -17,7 +17,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     timeout-minutes: 120
     steps:
       - name: Free runner disk space
@@ -38,7 +38,7 @@ jobs:
         run: |
           owner="${GITHUB_REPOSITORY_OWNER,,}"
           echo "IMAGE=ghcr.io/${owner}/erpnext-custom" >> "$GITHUB_ENV"
-          echo "TAG=v16-$(date +%Y%m%d)-${GITHUB_SHA::7}" >> "$GITHUB_ENV"
+          echo "TAG=v16-$(date +%Y%m%d)-${GITHUB_SHA::7}-arm64" >> "$GITHUB_ENV"
 
       - name: Validate apps.json
         run: jq . apps.json
@@ -56,7 +56,7 @@ jobs:
         with:
           context: frappe_docker
           file: frappe_docker/images/layered/Containerfile
-          platforms: linux/amd64
+          platforms: linux/arm64
           build-args: |
             FRAPPE_BRANCH=${{ env.FRAPPE_BRANCH }}
             CACHE_BUST=${{ github.run_id }}
