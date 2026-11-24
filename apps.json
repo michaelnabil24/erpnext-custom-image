@@ -1,0 +1,7 @@
+[
+  { "url": "https://github.com/frappe/erpnext", "branch": "version-16" },
+  { "url": "https://github.com/frappe/hrms", "branch": "version-16" },
+  { "url": "https://github.com/frappe/telephony", "branch": "develop" },
+  { "url": "https://github.com/frappe/helpdesk", "branch": "version-16" },
+  { "url": "https://github.com/Axentorllc/erpnext_egypt_compliance", "branch": "version-16" }
+]
